@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AirLine</title>
+</head>
+
+<!-- Adding some style to table -->
+<style type="text/css">
+    th:tr{
+        color: blue;
+    }
+    tr:nth-of-type(2n){
+        border: 1px solid black;
+        background-color: rgba(150, 150, 150, 0.5);
+    }
+    td{
+        padding: 8px 8px;
+        border: 1px solid black;
+    }
+    body{
+    background-color: powderblue;
+    text-align: center;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+
+<body>
+
+<h1>Airline Stats </h1>
+<h2>Data is from January to June from 2017,2018,2019! </h2>
+<p>This is a dashboard!</p>
+
+
+<table style="margin-left: 20px;">
+<!-- Table headers for Query1 -->
+    <th>
+        <tr style="color: Black; font-weight: bold; ">
+          <td>Average flight delays</td>
+         </tr>
+      <tr style="color: Black; ">
+          <td>{{ query1 }} Minutes</td>
+         </tr>
+    </th>
+
+  </table>
+
+
+  <table style="margin-left: 20px;">
+<!-- Table headers for Query2 -->
+    <th>
+        <tr style="color: Black; font-weight: bold; ">
+          <td>Showing number of flights whose distance is greater than 1000 that were cancelled.</td>
+         </tr>
+      <tr style="color: Black; ">
+          <td>{{ query2 }}</td>
+         </tr>
+    </th>
+
+    </table>
+
+      <table style="margin-left: 20px;">
+<!-- Table headers for Query3 -->
+    <th>
+        <tr style="color: Black; font-weight: bold; ">
+          <td>Showing number of flights whose distance is less than 1000 that were cancelled.</td>
+         </tr>
+      <tr style="color: Black; ">
+          <td>{{ query3 }}</td>
+         </tr>
+    </th>
+
+        </table>
+
+<table style="margin-left: 20px;">
+
+<!-- Table headers for Query4 -->
+    <th>
+        <tr style="color: Black; font-weight: bold; ">
+          <td colspan="2">Showing the number of cancelled flights from each location.</td>
+          </tr>
+        </th>
+
+    <!-- For loop logic of jinja template -->
+    {%for i in query4%}
+    <!-- table rows -->
+    <tr>
+         <td>{{i[0]}}</td>
+         <td>{{i[1]}}</td>
+         {%endfor%}
+    </tr>
+    </table>
+
+<table style="margin-left: 20px;">
+<p></p>
+<!-- Table headers for Query5 -->
+    <th>
+        <tr style="color: Black; font-weight: bold;">
+          <td colspan="5">Showing flight delayed by categories in minutes</td>
+        </tr>
+        <tr style="color: Black; font-weight: bold;">
+            <td>Carrier Delay</td>
+            <td>Weather Delay</td>
+            <td>NAS Delay</td>
+            <td>Security Delay</td>
+            <td>Late Craft Delay</td>
+          </tr>
+
+    </th>
+
+<!-- For loop logic of jinja template -->
+ {%for i in query5%}
+    <!-- table rows -->
+    <tr>
+         <td>{{i[0]}}</td>
+         <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+         {%endfor%}
+    </tr>
+    </table>
+<p></p>
+<table style="margin-left: 20px;">
+<!-- Table headers for Query6 -->
+    <th>
+        <tr style="color: Black; font-weight: bold;">
+          <td colspan="5">Showing flight delayed by categories in numbers</td>
+        </tr>
+        <tr style="color: Black; font-weight: bold;">
+            <td>Carrier Delay</td>
+            <td>Weather Delay</td>
+            <td>NAS Delay</td>
+            <td>Security Delay</td>
+            <td>Late Craft Delay</td>
+          </tr>
+
+    </th>
+
+    <tr>
+         <td>{{query6}}</td>
+         <td>{{query7}}</td>
+        <td>{{query8}}</td>
+        <td>{{query9}}</td>
+        <td>{{query10}}</td>
+     </tr>
+    </table>
+
+</body>
+</html>
